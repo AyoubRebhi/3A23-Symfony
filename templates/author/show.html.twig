@@ -1,0 +1,17 @@
+{%for aa in auth |filter(auth =>i==auth.id) %}
+	{#{% if i== aa.id %}#}
+	<ul>
+		<li>L'ID est
+			{{aa.id}}</li><br/>
+		<li>Le username est
+			{{aa.username}}</li><br/>
+		<li>L'email est
+			{{aa.email}}</li><br/>
+
+	</ul>
+	{#{% endif %}#}
+{% endfor %}
+<b>
+	<a href="http://127.0.0.1:8000/author/list">Retourner au tableau
+	</a>
+</b>

@@ -1,0 +1,48 @@
+<table
+	border="1">
+	{#}Tasna3 ligne f tableau{#}
+	<tr>
+		<th>
+			ID
+		</th>
+		<th>
+			Picture
+		</th>
+		<th>
+			Username
+		</th>
+		<th>
+			Email
+		</th>
+		<th>
+			Nb_books
+		</th>
+		<th>
+			Détails
+		</th>
+	</tr>
+	{%for a in auth |reverse%}
+		<tr>
+			<td>{{a.id}}</td>
+			<td><img src="{{a.picture}}" height="50"></td>
+			<td>{{a.username |upper}}
+			</td>
+			<td>{{a.email}}</td>
+			<td>{{a.nb_books}}</td>
+			<td>
+				<a href="{{path('AD',{'id':a.id})}}">Détails</a>
+			</td>
+		</tr>
+		{%else%}Table Not Found
+		{%endfor%}
+	</table>
+	le nombre d'auteur est :
+	{{auth|length}}<br>
+	{# Question 7#}
+	{% set somme = 0 %}
+	{%for aa in auth%}
+		{% set somme = somme + aa.nb_books %}
+		{%endfor%}
+		Le nombre total des livres est :
+		<b>{{somme}}</b>
+		{# Question 8#}
