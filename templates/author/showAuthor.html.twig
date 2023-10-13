@@ -14,6 +14,10 @@
 		<th>
 			Détails
 		</th>
+		<th>
+			Delete
+		</th>
+
 
 	</tr>
 	{%for a in authorTable %}
@@ -28,6 +32,14 @@
 			<td>
 				<a href="{{path('Details',{'id':a.id})}}">Détails</a>
 			</td>
+			<td>
+				<a href="{{path('DeleteAuthor',{'id':a.id})}}">Delete</a>
+			</td>
+			{# <td>
+							<form action="{{path('DeleteAuthor',{'id':a.id})}}">
+								<input type="submit" value="Delete">
+							</form>
+						</td> #}
 
 		</tr>
 		{%else%}Table Not Found
