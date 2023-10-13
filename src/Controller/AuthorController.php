@@ -52,7 +52,7 @@ class AuthorController extends AbstractController
         //importer l entity Author 
 
         $obj = $repo->findAll();
-        return $this->render('author/test.html.twig', ['authorTable' => $obj]);
+        return $this->render('author/showAuthor.html.twig', ['authorTable' => $obj]);
     }
     #[Route('/Details/{id}', name: 'Details')]
     function Details($id, AuthorRepository $repo)
