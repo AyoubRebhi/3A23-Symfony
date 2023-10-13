@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\AuthorRepository;
 
 #[Route('/author')]
 class AuthorController extends AbstractController
@@ -41,6 +42,26 @@ class AuthorController extends AbstractController
         return $this->render('author/show.html.twig', [
             'i' => $id,
             'auth' => $this->authors
+        ]);
+    }
+    #[Route('/AfficherAuthor')]
+    function AfficherAuthor(AuthorRepository $repo)
+    {
+        //$repo = new AuthorRepository; li heyya repo 
+        //fct findAll()===>Repository
+        //importer l entity Author 
+
+        $obj = $repo->findAll();
+        return $this->render('author/test.html.twig', ['authorTable' => $obj]);
+    }
+    #[Route('/Details/{id}', name: 'Details')]
+    function Details($id, AuthorRepository $repo)
+    {
+        $author = $repo->find($id);
+
+        return $this->render('author/showDetails.html.twig', [
+            'i' => $id,
+            'author' => $author
         ]);
     }
 }

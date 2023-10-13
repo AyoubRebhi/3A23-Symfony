@@ -1,9 +1,35 @@
-<div>
-	<form>
-		<label for="fname">First name:</label><br>
-		<input type="text" id="fname" name="fname" value="John"><br>
-		<label for="lname">Last name:</label><br>
-		<input type="text" id="lname" name="lname" value="Doe">
-	</form>
+<table
+	border="1">
+	{#}Tasna3 ligne f tableau{#}
+	<tr>
+		<th>
+			ID
+		</th>
+		<th>
+			Username
+		</th>
+		<th>
+			Email
+		</th>
+		<th>
+			Détails
+		</th>
 
-</div>
+	</tr>
+	{%for a in authorTable %}
+		<tr>
+			<td>{{a.id}}</td>
+
+			<td>{{a.username }}
+			</td>
+			<td>
+				{{a.email}}
+			</td>
+			<td>
+				<a href="{{path('Details',{'id':a.id})}}">Détails</a>
+			</td>
+
+		</tr>
+		{%else%}Table Not Found
+		{%endfor%}
+	</table>

@@ -1,0 +1,16 @@
+{% if author is defined %}
+	<ul>
+		<li>L'ID est
+			{{ author.id }}</li><br/>
+		<li>Le username est
+			{{ author.username }}</li><br/>
+		<li>L'email est
+			{{ author.email }}</li><br/>
+	</ul>
+{% else %}
+	<p>Author not found.</p>
+{% endif %}
+
+<b>
+	<a href="http://127.0.0.1:8000/author/AfficherAuthor">Retourner au tableau</a>
+</b>
